@@ -1,0 +1,16 @@
+{
+  "name": "try-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pobch/try-typescript.git",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "serve": "ts-node"
+  }
+}
