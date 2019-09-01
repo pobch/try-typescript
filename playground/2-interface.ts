@@ -11,7 +11,7 @@ const pobja = {
 }
 
 // Cannot contain more properties than defined in `Pop` interface
-const popja: Pop = {
+const pop: Pop = {
   // color: 'black',
   name: 'Pop',
   age: 18
@@ -19,8 +19,8 @@ const popja: Pop = {
 
 // `item` argument can contain more properties than defined in `Pop` interface
 const printSomething = (item: Pop): void => {
-  console.log(item)
+  console.log(item.age)
 }
 
 printSomething(pobja)
-printSomething(popja)
+printSomething(pop)
