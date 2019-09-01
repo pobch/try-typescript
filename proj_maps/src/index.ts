@@ -1,3 +1,3 @@
-import faker from 'faker'
+import { CustomMap } from './CustomMap'
 
-console.log(faker.address.latitude(), faker.address.longitude())
+new CustomMap('map')
