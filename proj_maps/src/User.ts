@@ -17,6 +17,6 @@ export class User implements Mappable {
   }
 
   description(): string {
-    return `<em>${this.name}</em>`
+    return `<em>User name: ${this.name}</em>`
   }
 }
