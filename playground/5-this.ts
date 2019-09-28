@@ -36,7 +36,7 @@ class User {
 
 const test = new User()
 
-// gonna error because we lost context of `this` :
+// The following will cause error because we lost context of `this` :
 test.on('change', () => {
   console.log('ON CHANGEEE!')
 })
