@@ -2,21 +2,21 @@
 type Callback = () => void
 
 class Eventing {
-  public events: { [key: string]: Callback[] } = {}
+  public evts: { [key: string]: Callback[] } = {}
 
   on(eventName: string, callback: Callback): void {
-    if (this.events[eventName]) {
-      this.events[eventName].push(callback)
+    if (this.evts[eventName]) {
+      this.evts[eventName].push(callback)
     } else {
-      this.events[eventName] = [callback]
+      this.evts[eventName] = [callback]
     }
   }
 
   trigger(eventName: string): void {
-    if (!this.events[eventName]) {
+    if (!this.evts[eventName]) {
       return
     }
-    this.events[eventName].forEach(callback => {
+    this.evts[eventName].forEach(callback => {
       callback()
     })
   }
@@ -35,7 +35,8 @@ class User {
 }
 
 const test = new User()
-const on = test.on
-on('change', () => {
-  console.log('ON CHANGE!')
-}) // gonna error because we lost context of `this`
+
+// gonna error because we lost context of `this` :
+test.on('change', () => {
+  console.log('ON CHANGEEE!')
+})
