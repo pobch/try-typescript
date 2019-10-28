@@ -18,7 +18,7 @@ function methodDecorator(target: any, key: string, desc: PropertyDescriptor): vo
   console.log(desc)
 }
 
-// Decorator for instance's property cannot have the third argument like a decorator for class' method
+// Decorator for instance's property cannot have a third argument (unlike a decorator for class' method)
 function instancePropDecorator(target: any, key: string): void {
   console.log(target)
   console.log(key)
