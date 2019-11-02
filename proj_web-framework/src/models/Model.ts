@@ -1,7 +1,7 @@
 import { AxiosPromise } from 'axios'
 
+// Props === UserProps
 interface ModelAttributes<Props> {
-  // Props === UserProps
   get<K extends keyof Props>(key: K): Props[K]
   set(value: Props): void
   getAll(): Props
@@ -12,8 +12,8 @@ interface Events {
   on(eventName: string, callback: () => void): void
 }
 
+// Props === UserProps
 interface Sync<Props> {
-  // Props === UserProps
   fetch(id: number): AxiosPromise
   save(data: Props): AxiosPromise
 }
