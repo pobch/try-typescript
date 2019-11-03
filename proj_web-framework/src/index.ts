@@ -12,9 +12,14 @@ interface UserProps {
 const API_URL = 'http://localhost:3000/users'
 
 const user = new Model<UserProps>(
-  new Attributes<UserProps>({ name: 'Pob', age: 55 }),
+  new Attributes<UserProps>({ name: 'Poooop', age: 21 }),
   new Eventing(),
   new ApiSync<UserProps>(API_URL)
 )
 
-console.log(user)
+user.on('save', () => {
+  console.log(user.get('id'), user.get('name'), user.get('age'))
+})
+
+console.log(user.get('id'), user.get('name'), user.get('age'))
+user.save()

@@ -5,13 +5,13 @@ export class Eventing {
   // Therefore, we have to manually put `| undefined` into type definition
   events: { [eventName: string]: Callback[] | undefined } = {}
 
-  on(eventName: string, callback: () => void): void {
+  on = (eventName: string, callback: () => void): void => {
     let handlers = this.events[eventName] || []
     handlers.push(callback)
     this.events[eventName] = handlers
   }
 
-  trigger(eventName: string): void {
+  trigger = (eventName: string): void => {
     const handlers = this.events[eventName]
     if (!handlers || handlers.length === 0) return
     handlers.forEach(callback => {
