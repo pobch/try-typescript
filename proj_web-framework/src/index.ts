@@ -16,3 +16,5 @@ const user = new Model<UserProps>(
   new Eventing(),
   new ApiSync<UserProps>(API_URL)
 )
+
+console.log(user)
