@@ -1,15 +1,20 @@
+type Callback = () => void
+
 export class Eventing {
-  events: { [eventName: string]: (() => void)[] } = {}
+  // Why does not TS automatically detect a possible undefined value??
+  // Therefore, we have to manually put `| undefined` into type definition
+  events: { [eventName: string]: Callback[] | undefined } = {}
 
   on(eventName: string, callback: () => void): void {
-    // if (!this.events[eventName]) {
-    //   this.events[eventName] = []
-    // }
-    this.events[eventName].push(callback) // Why does not TS detect a possible undefined value here?
+    let handlers = this.events[eventName] || []
+    handlers.push(callback)
+    this.events[eventName] = handlers
   }
 
   trigger(eventName: string): void {
-    this.events[eventName].forEach(callback => {
+    const handlers = this.events[eventName]
+    if (!handlers || handlers.length === 0) return
+    handlers.forEach(callback => {
       callback()
     })
   }
