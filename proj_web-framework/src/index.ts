@@ -12,6 +12,7 @@ interface UserProps {
 
 const API_URL = 'http://localhost:3000/users'
 
+// ------------ Test Model class before building User class --------------
 // const user = new Model<UserProps>(
 //   new Attributes<UserProps>({ name: 'Poooop', age: 21 }),
 //   new Eventing(),
