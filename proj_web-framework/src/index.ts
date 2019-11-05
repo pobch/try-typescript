@@ -26,7 +26,7 @@ const API_URL = 'http://localhost:3000/users'
 // console.log(user.get('id'), user.get('name'), user.get('age'))
 // user.save()
 
-// ------------- Using Composition: ---------------
+// ------------- User class implemented by Composition: ---------------
 const user = new User(
   new Model<UserProps>(
     new Attributes<UserProps>({ name: 'Yo', age: 12 }),
@@ -50,7 +50,7 @@ console.log(
 )
 user.randomAge()
 
-// --------------- Using Inheritance: ---------------
+// --------------- User class implemented by Inheritance: ---------------
 const userInherit = new UserInherit(
   new Attributes<UserProps>({ name: 'Jo', age: 13 }),
   new Eventing(),
