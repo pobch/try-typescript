@@ -1,10 +1,10 @@
 import { AxiosPromise, AxiosResponse } from 'axios'
 
-// Props === UserProps
-interface ModelAttributes<Props> {
-  get<K extends keyof Props>(key: K): Props[K]
-  set(update: Props): void
-  getAll(): Props
+// T will be UserProps
+interface ModelAttributes<T> {
+  get<K extends keyof T>(key: K): T[K]
+  set(update: T): void
+  getAll(): T
 }
 
 interface Events {
@@ -12,10 +12,10 @@ interface Events {
   on(eventName: string, callback: () => void): void
 }
 
-// Props === UserProps
-interface Sync<Props> {
+// T will be UserProps
+interface Sync<T> {
   fetch(id: number): AxiosPromise
-  save(data: Props): AxiosPromise
+  save(data: T): AxiosPromise
 }
 
 type HasId = {

@@ -2,7 +2,7 @@ import { Model } from './models/Model'
 import { Attributes } from './models/Attributes'
 import { Eventing } from './models/Eventing'
 import { ApiSync } from './models/ApiSync'
-import { User } from './models/User'
+import { User, UserInherit } from './models/User'
 
 interface UserProps {
   id?: number
@@ -25,6 +25,7 @@ const API_URL = 'http://localhost:3000/users'
 // console.log(user.get('id'), user.get('name'), user.get('age'))
 // user.save()
 
+// ------------- Using Composition: ---------------
 const user = new User(
   new Model<UserProps>(
     new Attributes<UserProps>({ name: 'Yo', age: 12 }),
@@ -47,3 +48,17 @@ console.log(
   user.model.attributes.get('age')
 )
 user.randomAge()
+
+// --------------- Using Inheritance: ---------------
+const userInherit = new UserInherit(
+  new Attributes<UserProps>({ name: 'Jo', age: 13 }),
+  new Eventing(),
+  new ApiSync(API_URL)
+)
+
+userInherit.on('change', () => {
+  console.log(userInherit.get('id'), userInherit.get('name'), userInherit.get('age'))
+})
+
+console.log(userInherit.get('id'), userInherit.get('name'), userInherit.get('age'))
+userInherit.randomAge()
