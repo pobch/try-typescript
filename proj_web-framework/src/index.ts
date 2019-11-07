@@ -12,7 +12,11 @@ interface UserProps {
 
 const API_URL = 'http://localhost:3000/users'
 
-// ------------ Test Model class before building User class --------------
+/**
+ * -------------------------------------------------
+ * Test `Model` class before building `User` class
+ * -------------------------------------------------
+ */
 // const user = new Model<UserProps>(
 //   new Attributes<UserProps>({ name: 'Poooop', age: 21 }),
 //   new Eventing(),
@@ -26,7 +30,11 @@ const API_URL = 'http://localhost:3000/users'
 // console.log(user.get('id'), user.get('name'), user.get('age'))
 // user.save()
 
-// ------------- User class implemented by Composition: ---------------
+/**
+ * ------------------------------------------
+ * `User` class implemented by Composition:
+ * ------------------------------------------
+ */
 const user = new User(
   new Model<UserProps>(
     new Attributes<UserProps>({ name: 'Yo', age: 12 }),
@@ -50,7 +58,11 @@ console.log(
 )
 user.randomAge()
 
-// --------------- User class implemented by Inheritance: ---------------
+/**
+ * -----------------------------------------
+ * `User` class implemented by Inheritance:
+ * -----------------------------------------
+ */
 const userInherit = new UserInherit(
   new Attributes<UserProps>({ name: 'Jo', age: 13 }),
   new Eventing(),
