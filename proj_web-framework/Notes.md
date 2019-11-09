@@ -6,7 +6,7 @@ More details on "179. Shortened Passthrough Methods" lesson.
 
 We have to be careful when we manually set up the value of `this.xxx` inside `constructor()`. Instead, we should use the shorthand pattern, i.e. `constructor(public xxx: string) {}` as much as possible.
 
-Example:
+Example: This TypeScript code below
 
 ```typescript
 export class Collection {
